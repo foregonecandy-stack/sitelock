@@ -37,8 +37,8 @@ function seedDemoDb() {
     ],
     rsvps: [],
     users: [
-      { id: 1, email: 'prefeitodamelhorcidade@lockwood.net', senha: '123456', nome: 'Ana Beatriz', bio: 'vivendo, postando, existindo ✨', linkMusica: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', fotoPerfilUrl: '', bannerUrl: '', amigosPersonalizado: null, desdePersonalizado: null, mood: 'inquietamente viva ✨', titulo: 'Prefeito da Melhor Cidade', tituloCor: '#ffd23f', adminTitulo: '', adminTituloCor: '', dataCriacao: new Date(now - 20 * 86400000).toISOString() },
-      { id: 2, email: 'bot@lockwood.net', senha: '123456', nome: 'Lockwood Bot', bio: 'perfil oficial da casa 🤖', linkMusica: '', fotoPerfilUrl: '', bannerUrl: '', amigosPersonalizado: null, desdePersonalizado: null, mood: 'online e vigilante 🤖', titulo: 'Admin & Bot', tituloCor: '#00e5ff', adminTitulo: '', adminTituloCor: '', dataCriacao: new Date(now - 40 * 86400000).toISOString() },
+      { id: 1, email: 'prefeitodamelhorcidade@lockwood.net', senha: '123456', nome: 'Prefeito', bio: 'vivendo, postando, existindo ✨', linkMusica: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', fotoPerfilUrl: '', bannerUrl: '', amigosPersonalizado: null, desdePersonalizado: null, mood: 'inquietamente viva ✨', titulo: 'Prefeito da Melhor Cidade', tituloCor: '#ffd23f', adminTitulo: '', adminTituloCor: '', tema: 'padrao', dataCriacao: new Date(now - 20 * 86400000).toISOString() },
+      { id: 2, email: 'bot@lockwood.net', senha: '123456', nome: 'Lockwood Bot', bio: 'perfil oficial da casa 🤖', linkMusica: '', fotoPerfilUrl: '', bannerUrl: '', amigosPersonalizado: null, desdePersonalizado: null, mood: 'online e vigilante 🤖', titulo: 'Admin & Bot', tituloCor: '#00e5ff', adminTitulo: '', adminTituloCor: '', tema: 'padrao', dataCriacao: new Date(now - 40 * 86400000).toISOString() },
     ],
     posts: [
       { id: 1, autorId: 1, conteudo: 'primeira postagem no lockwood, alguém mais aqui é dos anos 2000? 💜', imagem: '', imagens: [], enquete: null, dataCriacao: new Date(now - 3 * 3600000).toISOString() },
@@ -112,6 +112,7 @@ function migrateDemoDb(db) {
     if (u.tituloCor === undefined) u.tituloCor = '';
     if (u.adminTitulo === undefined) u.adminTitulo = '';
     if (u.adminTituloCor === undefined) u.adminTituloCor = '';
+    if (u.tema === undefined) u.tema = 'padrao';
   });
   // migração de grupos antigos: "membros" costumava ser uma lista simples de
   // ids (todo mundo já "dentro"). Agora cada membro tem um status, pra dar
@@ -122,6 +123,7 @@ function migrateDemoDb(db) {
       g.membros = g.membros.map(id => ({ id, status: id === g.criadorId ? 'aceito' : 'aceito' }));
     }
     g.membros = g.membros || [];
+    if (g.cor === undefined) g.cor = '#a86bff';
   });
   // reações variadas (👍❤️😂😮😢) — antes só existia "curtida" simples;
   // toda curtida antiga vira reação tipo "like" automaticamente.
@@ -232,7 +234,7 @@ async function mockApi(path, { method = 'GET', body } = {}) {
   switch (key) {
     case 'POST /user/cadastrarUsuario': {
       if (db.users.some(u => u.email === body.email)) fail('Já existe uma conta com esse e-mail.');
-      const user = { id: db.nextIds.user++, email: body.email, senha: body.senha, nome: body.nome, bio: '', linkMusica: '', fotoPerfilUrl: '', bannerUrl: '', amigosPersonalizado: null, desdePersonalizado: null, mood: '', titulo: '', tituloCor: '', adminTitulo: '', adminTituloCor: '', dataCriacao: demoNow() };
+      const user = { id: db.nextIds.user++, email: body.email, senha: body.senha, nome: body.nome, bio: '', linkMusica: '', fotoPerfilUrl: '', bannerUrl: '', amigosPersonalizado: null, desdePersonalizado: null, mood: '', titulo: '', tituloCor: '', adminTitulo: '', adminTituloCor: '', tema: 'padrao', dataCriacao: demoNow() };
       db.users.push(user);
       db.amizades.push({ id: db.nextIds.amizade++, solicitanteId: 1, destinatarioId: user.id, status: 'pendente' });
       await saveDemoDb(db);
@@ -314,7 +316,7 @@ async function mockApi(path, { method = 'GET', body } = {}) {
         { id: body.criadorId, status: 'aceito' },
         ...body.membros.filter(id => id !== body.criadorId).map(id => ({ id, status: 'pendente' })),
       ];
-      const grupo = { id: db.nextIds.grupo++, nome: body.nome, criadorId: body.criadorId, membros, dataCriacao: demoNow() };
+      const grupo = { id: db.nextIds.grupo++, nome: body.nome, criadorId: body.criadorId, membros, cor: (body.cor && /^#[0-9a-fA-F]{6}$/.test(body.cor) ? body.cor : '#a86bff'), dataCriacao: demoNow() };
       db.grupos.push(grupo);
       await saveDemoDb(db);
       return demoGrupoFull(db, grupo);
@@ -351,6 +353,28 @@ async function mockApi(path, { method = 'GET', body } = {}) {
       const g = db.grupos.find(x => x.id === parseInt(q.get('id')));
       if (!g) fail('Grupo não encontrado.');
       return demoGrupoFull(db, g);
+    }
+    case 'PUT /grupo/atualizarCor': {
+      const g = db.grupos.find(x => x.id === parseInt(q.get('grupoId')));
+      if (!g) fail('Grupo não encontrado.');
+      const solicitante = db.users.find(u => u.id === parseInt(q.get('userId')));
+      if (!solicitante) fail('Usuário não encontrado.');
+      const isCriador = g.criadorId === solicitante.id;
+      const isAdmin = isAdminAllowed(solicitante);
+      if (!isCriador && !isAdmin) fail('Só o criador do grupo ou um administrador pode mudar a cor.');
+      const novaCor = (body && body.cor && /^#[0-9a-fA-F]{6}$/.test(body.cor)) ? body.cor : '#a86bff';
+      g.cor = novaCor;
+      await saveDemoDb(db);
+      return demoGrupoFull(db, g);
+    }
+    case 'PUT /perfil/atualizarTema': {
+      const u = db.users.find(x => x.id === parseInt(q.get('userId')));
+      if (!u) fail('Usuário não encontrado.');
+      const temasValidos = ['padrao','roxo','rosa','verde','azul','dourado','vermelho','preto'];
+      const novoTema = (body && body.tema && temasValidos.includes(body.tema)) ? body.tema : 'padrao';
+      u.tema = novoTema;
+      await saveDemoDb(db);
+      return u;
     }
     case 'DELETE /grupo/sair': {
       const grupoId = parseInt(q.get('grupoId')), userId = parseInt(q.get('userId'));
