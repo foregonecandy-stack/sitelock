@@ -456,6 +456,9 @@
         @keyframes toast-in{ from{ opacity:0; transform:translateY(-8px); } to{ opacity:1; transform:translateY(0); } }
         .toast.leaving{ animation:toast-out 0.15s ease forwards; }
         @keyframes toast-out{ to{ opacity:0; transform:translateX(20px); } }
+        /* toast de erro mais visível e durável */
+        .toast.error{ font-size:14px; padding:14px 36px 14px 14px; border-width:3px; }
+        .toast.error span{ font-weight:700; }
 
         /* ============ TEMPO REAL: pulso do aviso de posts novos ============ */
         @keyframes neonPulse{ 0%,100%{ box-shadow:0 0 5px var(--neon-cyan),0 0 10px var(--neon-cyan); opacity:0.95; } 50%{ box-shadow:0 0 12px var(--neon-cyan),0 0 24px var(--neon-cyan); opacity:1; } }
@@ -485,7 +488,8 @@
           .dm-thread-composer{ flex-wrap:wrap; }
           .dm-thread-composer input[type=text]{ width:100%; order:1; }
           .notifications-panel{ width:min(270px, 82vw); }
-          .toast-container{ top:auto; bottom:16px; left:16px; right:16px; max-width:none; width:auto; }
+          .toast-container{ top:16px; bottom:auto; left:16px; right:16px; max-width:none; width:auto; z-index:7000; }
+          .toast{ font-size:14px; padding:14px 36px 14px 14px; }
         }
         @media (max-width:480px){
           body{font-size:17px;}
@@ -1193,7 +1197,7 @@
                         <div id="dm-thread-composer" class="dm-thread-composer hidden">
                             <input type="text" id="dm-input" placeholder="Escreva uma mensagem...">
                             <button type="button" class="btn ghost small" id="dm-imgpick" title="Anexar imagem">📷</button>
-                            <input type="file" accept="image/*" class="hidden" id="dm-imgfile">
+                            <input type="file" accept="image/*" class="hidden" id="dm-imgfile" multiple>
                             <button class="btn small cyan" id="dm-send-btn">Enviar</button>
                         </div>
                         <img class="image-field-preview hidden" id="dm-imgpreview" alt="pré-visualização">
@@ -1401,12 +1405,25 @@
       const icon = resolvedType === 'error' ? '⚠' : (resolvedType === 'success' ? '✓' : (resolvedType === 'achievement' ? '🏆' : 'ℹ'));
       toast.innerHTML = `<span>${icon} ${escapeHtml(message)}</span><button type="button" class="toast-close">✕</button>`;
       const remove = () => {
+        if (toast.dataset.removed) return;
+        toast.dataset.removed = '1';
         toast.classList.add('leaving');
         setTimeout(() => toast.remove(), 160);
       };
       toast.querySelector('.toast-close').onclick = remove;
+      // erros ficam mais tempo (pra dar de ler), no celular tudo fica um pouco mais
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      let dur = 5000;
+      if (resolvedType === 'error') dur = isMobile ? 9000 : 7000;
+      else if (resolvedType === 'achievement') dur = isMobile ? 8000 : 7000;
+      else if (isMobile) dur = 6000;
       container.appendChild(toast);
-      setTimeout(remove, 4500);
+      // pausa o timer quando o mouse/touch estiver em cima (pra não sumir lendo)
+      let timer = setTimeout(remove, dur);
+      toast.addEventListener('mouseenter', () => clearTimeout(timer));
+      toast.addEventListener('mouseleave', () => { timer = setTimeout(remove, 2000); });
+      toast.addEventListener('touchstart', () => clearTimeout(timer), { passive: true });
+      toast.addEventListener('touchend', () => { timer = setTimeout(remove, 3000); }, { passive: true });
     }
 
     /* ==========================================================================
@@ -5814,12 +5831,13 @@
 
       imgPick.onclick = () => imgFile.click();
       imgFile.onchange = async () => {
-        const f = imgFile.files[0];
+        const f = imgFile.files && imgFile.files[0];
         if (!f) return;
         try {
           dmPendingImage = await readImageAsCompressedDataUrl(f, 900, 0.82);
           imgPreview.src = dmPendingImage;
           imgPreview.classList.remove('hidden');
+          showToast('Imagem anexada! 📷', 'info');
         } catch (err) {
           showToast(err.message);
         } finally {
