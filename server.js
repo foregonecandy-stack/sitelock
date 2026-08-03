@@ -355,9 +355,10 @@ async function mockApi(path, { method = 'GET', body } = {}) {
       return demoGrupoFull(db, g);
     }
     case 'PUT /grupo/atualizarCor': {
-      const g = db.grupos.find(x => x.id === parseInt(q.get('grupoId')));
+      const g = db.grupos.find(x => x.id === (parseInt(q.get('grupoId')) || parseInt(body && body.grupoId)));
       if (!g) fail('Grupo não encontrado.');
-      const solicitante = db.users.find(u => u.id === parseInt(q.get('userId')));
+      const userId = parseInt(q.get('userId')) || parseInt(body && body.userId);
+      const solicitante = db.users.find(u => u.id === userId);
       if (!solicitante) fail('Usuário não encontrado.');
       const isCriador = g.criadorId === solicitante.id;
       const isAdmin = isAdminAllowed(solicitante);
@@ -368,7 +369,8 @@ async function mockApi(path, { method = 'GET', body } = {}) {
       return demoGrupoFull(db, g);
     }
     case 'PUT /perfil/atualizarTema': {
-      const u = db.users.find(x => x.id === parseInt(q.get('userId')));
+      const userId = parseInt(q.get('userId')) || parseInt(body && body.idUsuario);
+      const u = db.users.find(x => x.id === userId);
       if (!u) fail('Usuário não encontrado.');
       const temasValidos = ['padrao','roxo','rosa','verde','azul','dourado','vermelho','preto'];
       const novoTema = (body && body.tema && temasValidos.includes(body.tema)) ? body.tema : 'padrao';
