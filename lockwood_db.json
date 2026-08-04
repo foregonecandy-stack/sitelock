@@ -5,7 +5,7 @@
     "comentario": 3,
     "curtida": 2,
     "amizade": 3,
-    "mensagem": 4,
+    "mensagem": 5,
     "voto": 1,
     "grupo": 2,
     "mensagemGrupo": 5,
@@ -205,7 +205,18 @@
       "status": "pendente"
     }
   ],
-  "mensagens": [],
+  "mensagens": [
+    {
+      "id": 4,
+      "remetenteId": 3,
+      "destinatarioId": 2,
+      "conteudo": "Coe",
+      "imagem": "",
+      "replyToId": null,
+      "editado": false,
+      "dataCriacao": "2026-08-04T20:41:04.128Z"
+    }
+  ],
   "votosEnquete": [],
   "grupos": [
     {
