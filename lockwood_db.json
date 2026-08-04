@@ -2,7 +2,7 @@
   "nextIds": {
     "user": 4,
     "post": 10,
-    "comentario": 2,
+    "comentario": 3,
     "curtida": 2,
     "amizade": 3,
     "mensagem": 4,
@@ -172,6 +172,15 @@
       "imagem": "",
       "parentId": null,
       "dataCriacao": "2026-08-03T04:33:07.208Z"
+    },
+    {
+      "id": 2,
+      "autorId": 3,
+      "postId": 2,
+      "conteudo": "Boaaaa",
+      "imagem": "",
+      "parentId": null,
+      "dataCriacao": "2026-08-04T20:40:55.730Z"
     }
   ],
   "curtidas": [
