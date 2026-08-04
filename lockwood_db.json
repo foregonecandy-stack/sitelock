@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 3,
+    "user": 4,
     "post": 6,
     "comentario": 2,
     "curtida": 1,
-    "amizade": 2,
+    "amizade": 3,
     "mensagem": 4,
     "voto": 1,
     "grupo": 2,
@@ -127,6 +127,25 @@
       "dataCriacao": "2026-06-24T06:33:07.208Z",
       "status": "online",
       "tema": "padrao"
+    },
+    {
+      "id": 3,
+      "email": "Calebulosodeiameleecar@lockwood.com",
+      "senha": "123",
+      "nome": "Caleboss",
+      "bio": "",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "",
+      "titulo": "",
+      "tituloCor": "",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "tema": "padrao",
+      "dataCriacao": "2026-08-04T18:39:35.458Z"
     }
   ],
   "posts": [
@@ -173,6 +192,12 @@
       "solicitanteId": 1,
       "destinatarioId": 2,
       "status": "aceita"
+    },
+    {
+      "id": 2,
+      "solicitanteId": 1,
+      "destinatarioId": 3,
+      "status": "pendente"
     }
   ],
   "mensagens": [
