@@ -3,7 +3,7 @@
     "user": 5,
     "post": 13,
     "comentario": 3,
-    "curtida": 3,
+    "curtida": 4,
     "amizade": 4,
     "mensagem": 5,
     "voto": 1,
@@ -173,7 +173,8 @@
       "adminTitulo": "",
       "adminTituloCor": "",
       "tema": "padrao",
-      "dataCriacao": "2026-08-04T21:54:55.423Z"
+      "dataCriacao": "2026-08-04T21:54:55.423Z",
+      "status": "online"
     }
   ],
   "posts": [
@@ -215,7 +216,14 @@
       "dataCriacao": "2026-08-03T04:33:07.208Z"
     }
   ],
-  "curtidas": [],
+  "curtidas": [
+    {
+      "id": 3,
+      "autorId": 3,
+      "postId": 12,
+      "tipo": "sad"
+    }
+  ],
   "amizades": [
     {
       "id": 1,
