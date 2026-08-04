@@ -203,7 +203,7 @@
       "id": 2,
       "solicitanteId": 1,
       "destinatarioId": 3,
-      "status": "pendente"
+      "status": "aceita"
     }
   ],
   "mensagens": [],
