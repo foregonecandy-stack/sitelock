@@ -1,7 +1,7 @@
 {
   "nextIds": {
     "user": 7,
-    "post": 15,
+    "post": 16,
     "comentario": 3,
     "curtida": 7,
     "amizade": 6,
@@ -269,6 +269,18 @@
       "fixado": false,
       "editado": false,
       "dataCriacao": "2026-08-04T22:43:45.140Z"
+    },
+    {
+      "id": 15,
+      "autorId": 6,
+      "conteudo": "Outro dia aliviada com a segurança por trás desses portões mantendo somente os animais dentro do zoológico (antigamente parte oficial de Lockwood). Obrigada pelo excelente trabalho como sempre, policiais!",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-04T22:43:59.186Z"
     }
   ],
   "comentarios": [
