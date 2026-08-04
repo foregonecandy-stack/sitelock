@@ -2,7 +2,7 @@
   "nextIds": {
     "user": 7,
     "post": 16,
-    "comentario": 3,
+    "comentario": 4,
     "curtida": 8,
     "amizade": 6,
     "mensagem": 5,
@@ -292,6 +292,15 @@
       "imagem": "",
       "parentId": null,
       "dataCriacao": "2026-08-03T04:33:07.208Z"
+    },
+    {
+      "id": 3,
+      "autorId": 4,
+      "postId": 13,
+      "conteudo": "todos vcs foram incríveis!! ansiosa para os próximos shows!! <3",
+      "imagem": "",
+      "parentId": null,
+      "dataCriacao": "2026-08-04T22:47:32.061Z"
     }
   ],
   "curtidas": [
