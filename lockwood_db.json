@@ -1,7 +1,7 @@
 {
   "nextIds": {
     "user": 4,
-    "post": 9,
+    "post": 10,
     "comentario": 2,
     "curtida": 2,
     "amizade": 3,
@@ -161,6 +161,18 @@
       "fixado": false,
       "editado": false,
       "repostOf": null
+    },
+    {
+      "id": 9,
+      "autorId": 3,
+      "conteudo": "ultimo teste",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-04T19:47:06.177Z"
     }
   ],
   "comentarios": [
