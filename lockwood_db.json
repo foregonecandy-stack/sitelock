@@ -201,10 +201,10 @@
       "email": "empresswaldorf@pink.com",
       "senha": "P&onC4N&9%^y3esT2$h^zyxz6HUa56G&J2h$9pAxGvLnLyUjSu!Uv94TvZ#B2FnkTXUiSb!@V7kp@oN3vLe6E@v5e5zn%a@F9Q*kBq2N72FtyeqbURWkyQr$JQ!PSZ*9",
       "nome": "Madeleine Eleanor Waldorf",
-      "bio": "",
-      "linkMusica": "",
-      "fotoPerfilUrl": "",
-      "bannerUrl": "",
+      "bio": "Seja inteligente e não perca seu tempo comigo se for desperdiçá-lo. Viens à moi, ma chérie",
+      "linkMusica": "https://open.spotify.com/track/5k5aXHu1T4VIS4QrZFfz3Z?si=c34400e9c70543f5",
+      "fotoPerfilUrl": "https://i.pinimg.com/736x/c8/4f/d8/c84fd8996451dda27c20932f47a29392.jpg",
+      "bannerUrl": "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Femerald-green-gold-marble-background-invitation-card-backdrop-banner_779330-611.jpg%3Fw%3D1380&sp=1785883204Ta628ad7a62224d81d72c2a30d7aa563cedc7e5c44dee4dc8d401f88ba3e2c60a",
       "amigosPersonalizado": null,
       "desdePersonalizado": null,
       "mood": "",
@@ -213,7 +213,8 @@
       "adminTitulo": "",
       "adminTituloCor": "",
       "tema": "padrao",
-      "dataCriacao": "2026-08-04T22:38:23.953Z"
+      "dataCriacao": "2026-08-04T22:38:23.953Z",
+      "status": "online"
     }
   ],
   "posts": [
