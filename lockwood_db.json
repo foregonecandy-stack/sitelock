@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 6,
+    "user": 7,
     "post": 13,
     "comentario": 3,
     "curtida": 7,
-    "amizade": 5,
+    "amizade": 6,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -195,6 +195,25 @@
       "tema": "preto",
       "dataCriacao": "2026-08-04T22:21:17.767Z",
       "status": "online"
+    },
+    {
+      "id": 6,
+      "email": "empresswaldorf@pink.com",
+      "senha": "P&onC4N&9%^y3esT2$h^zyxz6HUa56G&J2h$9pAxGvLnLyUjSu!Uv94TvZ#B2FnkTXUiSb!@V7kp@oN3vLe6E@v5e5zn%a@F9Q*kBq2N72FtyeqbURWkyQr$JQ!PSZ*9",
+      "nome": "Madeleine Eleanor Waldorf",
+      "bio": "",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "",
+      "titulo": "",
+      "tituloCor": "",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "tema": "padrao",
+      "dataCriacao": "2026-08-04T22:38:23.953Z"
     }
   ],
   "posts": [
@@ -285,6 +304,12 @@
       "id": 4,
       "solicitanteId": 1,
       "destinatarioId": 5,
+      "status": "pendente"
+    },
+    {
+      "id": 5,
+      "solicitanteId": 1,
+      "destinatarioId": 6,
       "status": "pendente"
     }
   ],
