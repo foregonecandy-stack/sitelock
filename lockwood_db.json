@@ -3,7 +3,7 @@
     "user": 6,
     "post": 13,
     "comentario": 3,
-    "curtida": 6,
+    "curtida": 7,
     "amizade": 5,
     "mensagem": 5,
     "voto": 1,
@@ -253,6 +253,12 @@
       "id": 5,
       "autorId": 4,
       "postId": 2,
+      "tipo": "love"
+    },
+    {
+      "id": 6,
+      "autorId": 5,
+      "postId": 12,
       "tipo": "love"
     }
   ],
