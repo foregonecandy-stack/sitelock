@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 4,
-    "post": 12,
+    "user": 5,
+    "post": 13,
     "comentario": 3,
     "curtida": 3,
-    "amizade": 3,
+    "amizade": 4,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -155,6 +155,25 @@
       "tema": "preto",
       "dataCriacao": "2026-08-04T18:39:35.458Z",
       "status": "online"
+    },
+    {
+      "id": 4,
+      "email": "maggie.sage@gmail.com",
+      "senha": "coffelover1987",
+      "nome": "Maggie",
+      "bio": "",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "",
+      "titulo": "",
+      "tituloCor": "",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "tema": "padrao",
+      "dataCriacao": "2026-08-04T21:54:55.423Z"
     }
   ],
   "posts": [
@@ -169,6 +188,18 @@
       "fixado": false,
       "editado": false,
       "repostOf": null
+    },
+    {
+      "id": 12,
+      "autorId": 2,
+      "conteudo": "A equipe da Lockwood.net pede sinceras desculpas a todos os usuários pelos transtornos causados nos últimos dias.\n\nDurante uma manutenção de rotina em nossos servidores, uma falha inesperada no sistema de armazenamento coincidiu com uma queda de energia no data center onde nossos backups secundários estavam sendo processados. Como resultado, parte dos registros armazenados acabou sendo corrompida de forma irreversível, tornando impossível a recuperação de algumas informações.\n\nSabemos o quanto cada perfil, conversa e registro representa para nossa comunidade, e lamentamos profundamente o ocorrido.\n\nPara garantir que uma situação como essa não volte a acontecer, reforçamos nossa infraestrutura com novos procedimentos de backup, armazenamento em servidores redundantes e verificações periódicas da integridade dos dados antes de qualquer manutenção.\n\nA confiança de nossos usuários sempre foi a prioridade da Lockwood.net, e estamos trabalhando para reconstruir tudo da forma mais segura e estável possível.\n\nAgradecemos pela compreensão, paciência e por continuarem fazendo parte da nossa comunidade.\n\nAtenciosamente,\nEquipe Lockwood.net",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-04T21:54:58.936Z"
     }
   ],
   "comentarios": [
@@ -195,6 +226,12 @@
       "solicitanteId": 1,
       "destinatarioId": 3,
       "status": "aceita"
+    },
+    {
+      "id": 3,
+      "solicitanteId": 1,
+      "destinatarioId": 4,
+      "status": "pendente"
     }
   ],
   "mensagens": [],
