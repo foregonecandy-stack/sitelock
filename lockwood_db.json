@@ -12,7 +12,7 @@
     "recado": 1,
     "noticia": 1,
     "evento": 1,
-    "comentarioNoticia": 1,
+    "comentarioNoticia": 2,
     "rsvp": 1
   },
   "cidade": {
@@ -74,7 +74,15 @@
       "fixado": true
     }
   ],
-  "comentariosNoticia": [],
+  "comentariosNoticia": [
+    {
+      "id": 1,
+      "noticiaId": 1,
+      "autorId": 3,
+      "conteudo": "Teste",
+      "dataCriacao": "2026-08-04T21:14:46.509Z"
+    }
+  ],
   "eventos": [
     {
       "id": 1,
