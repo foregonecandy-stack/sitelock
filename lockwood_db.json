@@ -198,18 +198,7 @@
       "status": "pendente"
     }
   ],
-  "mensagens": [
-    {
-      "id": 4,
-      "remetenteId": 3,
-      "destinatarioId": 2,
-      "conteudo": "Coe",
-      "imagem": "",
-      "replyToId": null,
-      "editado": false,
-      "dataCriacao": "2026-08-04T20:41:04.128Z"
-    }
-  ],
+  "mensagens": [],
   "votosEnquete": [],
   "grupos": [
     {
