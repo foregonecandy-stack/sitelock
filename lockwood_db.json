@@ -1,7 +1,7 @@
 {
   "nextIds": {
     "user": 4,
-    "post": 7,
+    "post": 9,
     "comentario": 2,
     "curtida": 1,
     "amizade": 3,
@@ -173,6 +173,30 @@
       "fixado": false,
       "editado": false,
       "dataCriacao": "2026-08-04T18:46:47.553Z"
+    },
+    {
+      "id": 7,
+      "autorId": 3,
+      "conteudo": "testedebackup",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-04T18:47:00.860Z"
+    },
+    {
+      "id": 8,
+      "autorId": 2,
+      "conteudo": "🎊 Caleboss fez sua primeira postagem no lockwood! 🎉",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-04T18:47:01.638Z"
     }
   ],
   "comentarios": [
