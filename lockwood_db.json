@@ -169,30 +169,6 @@
       "fixado": false,
       "editado": false,
       "repostOf": null
-    },
-    {
-      "id": 10,
-      "autorId": 3,
-      "conteudo": "",
-      "imagem": "",
-      "imagens": [],
-      "enquete": null,
-      "repostOf": 2,
-      "fixado": false,
-      "editado": false,
-      "dataCriacao": "2026-08-04T21:15:34.713Z"
-    },
-    {
-      "id": 11,
-      "autorId": 3,
-      "conteudo": "",
-      "imagem": "",
-      "imagens": [],
-      "enquete": null,
-      "repostOf": 2,
-      "fixado": false,
-      "editado": false,
-      "dataCriacao": "2026-08-04T21:44:09.289Z"
     }
   ],
   "comentarios": [
@@ -206,14 +182,7 @@
       "dataCriacao": "2026-08-03T04:33:07.208Z"
     }
   ],
-  "curtidas": [
-    {
-      "id": 2,
-      "autorId": 3,
-      "postId": 2,
-      "tipo": "like"
-    }
-  ],
+  "curtidas": [],
   "amizades": [
     {
       "id": 1,
