@@ -4,7 +4,7 @@
     "post": 16,
     "comentario": 5,
     "curtida": 8,
-    "amizade": 7,
+    "amizade": 8,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -233,7 +233,8 @@
       "adminTitulo": "",
       "adminTituloCor": "",
       "tema": "padrao",
-      "dataCriacao": "2026-08-04T22:58:32.289Z"
+      "dataCriacao": "2026-08-04T22:58:32.289Z",
+      "status": "online"
     }
   ],
   "posts": [
@@ -398,6 +399,12 @@
       "id": 6,
       "solicitanteId": 1,
       "destinatarioId": 7,
+      "status": "pendente"
+    },
+    {
+      "id": 7,
+      "solicitanteId": 4,
+      "destinatarioId": 6,
       "status": "pendente"
     }
   ],
