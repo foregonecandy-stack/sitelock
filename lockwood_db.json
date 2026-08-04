@@ -3,7 +3,7 @@
     "user": 4,
     "post": 9,
     "comentario": 2,
-    "curtida": 1,
+    "curtida": 2,
     "amizade": 3,
     "mensagem": 4,
     "voto": 1,
@@ -174,7 +174,14 @@
       "dataCriacao": "2026-08-03T04:33:07.208Z"
     }
   ],
-  "curtidas": [],
+  "curtidas": [
+    {
+      "id": 1,
+      "autorId": 3,
+      "postId": 2,
+      "tipo": "love"
+    }
+  ],
   "amizades": [
     {
       "id": 1,
