@@ -28,8 +28,8 @@
       {
         "id": 1,
         "nome": "Lockwood FM 98.5",
-        "genero": "Pop/Rock anos 2000",
-        "playlistUrl": "",
+        "genero": "Pop/Rock",
+        "playlistUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         "cor": "#ff5470"
       },
       {
