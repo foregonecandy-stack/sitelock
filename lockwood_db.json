@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 7,
+    "user": 8,
     "post": 16,
     "comentario": 5,
     "curtida": 8,
-    "amizade": 6,
+    "amizade": 7,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -215,6 +215,25 @@
       "tema": "rosa",
       "dataCriacao": "2026-08-04T22:38:23.953Z",
       "status": "online"
+    },
+    {
+      "id": 7,
+      "email": "meleenareynolds@yahoo.com",
+      "senha": "Wicca9087",
+      "nome": "Meleena.R",
+      "bio": "",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "",
+      "titulo": "",
+      "tituloCor": "",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "tema": "padrao",
+      "dataCriacao": "2026-08-04T22:58:32.289Z"
     }
   ],
   "posts": [
@@ -374,6 +393,12 @@
       "solicitanteId": 1,
       "destinatarioId": 6,
       "status": "aceita"
+    },
+    {
+      "id": 6,
+      "solicitanteId": 1,
+      "destinatarioId": 7,
+      "status": "pendente"
     }
   ],
   "mensagens": [],
