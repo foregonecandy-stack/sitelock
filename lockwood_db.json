@@ -1,9 +1,9 @@
 {
   "nextIds": {
     "user": 4,
-    "post": 10,
+    "post": 11,
     "comentario": 3,
-    "curtida": 2,
+    "curtida": 3,
     "amizade": 3,
     "mensagem": 5,
     "voto": 1,
@@ -169,6 +169,18 @@
       "fixado": false,
       "editado": false,
       "repostOf": null
+    },
+    {
+      "id": 10,
+      "autorId": 3,
+      "conteudo": "",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": 2,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-04T21:15:34.713Z"
     }
   ],
   "comentarios": [
@@ -191,7 +203,14 @@
       "dataCriacao": "2026-08-04T20:40:55.730Z"
     }
   ],
-  "curtidas": [],
+  "curtidas": [
+    {
+      "id": 2,
+      "autorId": 3,
+      "postId": 2,
+      "tipo": "like"
+    }
+  ],
   "amizades": [
     {
       "id": 1,
