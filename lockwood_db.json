@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 5,
+    "user": 6,
     "post": 13,
     "comentario": 3,
     "curtida": 6,
-    "amizade": 4,
+    "amizade": 5,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -175,6 +175,25 @@
       "tema": "preto",
       "dataCriacao": "2026-08-04T21:54:55.423Z",
       "status": "online"
+    },
+    {
+      "id": 5,
+      "email": "morgan.b@hotmail.com",
+      "senha": "Morgan777",
+      "nome": "Morgan Beauregard",
+      "bio": "",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "",
+      "titulo": "",
+      "tituloCor": "",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "tema": "padrao",
+      "dataCriacao": "2026-08-04T22:21:17.767Z"
     }
   ],
   "posts": [
@@ -253,6 +272,12 @@
       "id": 3,
       "solicitanteId": 1,
       "destinatarioId": 4,
+      "status": "pendente"
+    },
+    {
+      "id": 4,
+      "solicitanteId": 1,
+      "destinatarioId": 5,
       "status": "pendente"
     }
   ],
