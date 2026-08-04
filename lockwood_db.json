@@ -145,7 +145,8 @@
       "adminTitulo": "",
       "adminTituloCor": "",
       "tema": "padrao",
-      "dataCriacao": "2026-08-04T18:39:35.458Z"
+      "dataCriacao": "2026-08-04T18:39:35.458Z",
+      "status": "online"
     }
   ],
   "posts": [
@@ -200,28 +201,7 @@
       "status": "pendente"
     }
   ],
-  "mensagens": [
-    {
-      "id": 1,
-      "remetenteId": 2,
-      "destinatarioId": 1,
-      "conteudo": "oi Ana, bem-vinda de novo 👋",
-      "imagem": "",
-      "dataCriacao": "2026-08-03T01:33:07.208Z",
-      "replyToId": null,
-      "editado": false
-    },
-    {
-      "id": 2,
-      "remetenteId": 1,
-      "destinatarioId": 2,
-      "conteudo": "valeu! testando as DMs por aqui",
-      "imagem": "",
-      "dataCriacao": "2026-08-03T02:03:07.208Z",
-      "replyToId": null,
-      "editado": false
-    }
-  ],
+  "mensagens": [],
   "votosEnquete": [],
   "grupos": [
     {
@@ -231,10 +211,6 @@
       "membros": [
         {
           "id": 1,
-          "status": "aceito"
-        },
-        {
-          "id": 2,
           "status": "aceito"
         }
       ],
