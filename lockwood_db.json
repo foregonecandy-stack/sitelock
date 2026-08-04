@@ -183,14 +183,7 @@
       "dataCriacao": "2026-08-04T20:40:55.730Z"
     }
   ],
-  "curtidas": [
-    {
-      "id": 1,
-      "autorId": 3,
-      "postId": 2,
-      "tipo": "love"
-    }
-  ],
+  "curtidas": [],
   "amizades": [
     {
       "id": 1,
