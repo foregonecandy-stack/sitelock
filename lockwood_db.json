@@ -193,12 +193,14 @@
       "id": 12,
       "autorId": 2,
       "conteudo": "A equipe da Lockwood.net pede sinceras desculpas a todos os usuários pelos transtornos causados nos últimos dias.\n\nDurante uma manutenção de rotina em nossos servidores, uma falha inesperada no sistema de armazenamento coincidiu com uma queda de energia no data center onde nossos backups secundários estavam sendo processados. Como resultado, parte dos registros armazenados acabou sendo corrompida de forma irreversível, tornando impossível a recuperação de algumas informações.\n\nSabemos o quanto cada perfil, conversa e registro representa para nossa comunidade, e lamentamos profundamente o ocorrido.\n\nPara garantir que uma situação como essa não volte a acontecer, reforçamos nossa infraestrutura com novos procedimentos de backup, armazenamento em servidores redundantes e verificações periódicas da integridade dos dados antes de qualquer manutenção.\n\nA confiança de nossos usuários sempre foi a prioridade da Lockwood.net, e estamos trabalhando para reconstruir tudo da forma mais segura e estável possível.\n\nAgradecemos pela compreensão, paciência e por continuarem fazendo parte da nossa comunidade.\n\nAtenciosamente,\nEquipe Lockwood.net",
-      "imagem": "",
-      "imagens": [],
+      "imagem": "https://i.pinimg.com/1200x/a5/10/1d/a5101d27c0ef587c3f61f5f34ff9649c.jpg",
+      "imagens": [
+        "https://i.pinimg.com/1200x/a5/10/1d/a5101d27c0ef587c3f61f5f34ff9649c.jpg"
+      ],
       "enquete": null,
       "repostOf": null,
       "fixado": false,
-      "editado": false,
+      "editado": true,
       "dataCriacao": "2026-08-04T21:54:58.936Z"
     }
   ],
