@@ -1,0 +1,240 @@
+{
+  "nextIds": {
+    "user": 3,
+    "post": 6,
+    "comentario": 2,
+    "curtida": 1,
+    "amizade": 2,
+    "mensagem": 4,
+    "voto": 1,
+    "grupo": 2,
+    "mensagemGrupo": 5,
+    "recado": 1,
+    "noticia": 1,
+    "evento": 1,
+    "comentarioNoticia": 1,
+    "rsvp": 1
+  },
+  "cidade": {
+    "clima": {
+      "condicao": "garoa",
+      "temp": 30,
+      "icone": "🌧️",
+      "atualizadoEm": "2026-08-04T01:17:38.322Z",
+      "atualizadoPor": 1
+    },
+    "horaManual": 14,
+    "radioEstacoes": [
+      {
+        "id": 1,
+        "nome": "Lockwood FM 98.5",
+        "genero": "Pop/Rock",
+        "playlistUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "cor": "#ff5470"
+      },
+      {
+        "id": 2,
+        "nome": "Rádio Sertão AM",
+        "genero": "Sertanejo/Forro",
+        "playlistUrl": "https://www.youtube.com/watch?v=ScMzIvxBSi4",
+        "cor": "#f5a623"
+      },
+      {
+        "id": 3,
+        "nome": "Rock da Cidade",
+        "genero": "Rock/Alternativo",
+        "playlistUrl": "",
+        "cor": "#00e5ff"
+      },
+      {
+        "id": 4,
+        "nome": "Lockwood Lofi",
+        "genero": "Lofi/Chill",
+        "playlistUrl": "",
+        "cor": "#a78bfa"
+      },
+      {
+        "id": 5,
+        "nome": "Rádio Mistério",
+        "genero": "Ambiente/Suspense",
+        "playlistUrl": "",
+        "cor": "#39ff14"
+      }
+    ],
+    "radioEstacaoAtiva": 1,
+    "radioAleatorio": false
+  },
+  "noticias": [
+    {
+      "id": 1,
+      "autorId": 2,
+      "manchete": "BEM-VINDOS A LOCKWOOD — A CIDADE ESTÁ DE PORTAS ABERTAS",
+      "corpo": "Prezados moradores,\n\nÉ com enorme alegria que a Prefeitura de Lockwood anuncia a inauguração oficial da nossa rede municipal! Depois de muito trabalho, a praça central ganhou fôlego novo e agora todos podem se conectar, conversar e compartilhar momentos desta nossa querida cidade.\n\nO que você encontra por aqui:\n\n📰 O Lockwood Times — nosso jornal oficial, com as notícias que importam pra cidade. Deixe seu comentário e participe!\n\n📅 Eventos da cidade — festas, reuniões e acontecimentos. Marque sua presença e não perca nada.\n\n📻 Rádio Lockwood FM — cinco estações pra você ouvir enquanto navega. Pop, sertanejo, rock, lofi e ambiente. É só apertar o play.\n\n🌤️ Clima do dia — fique por dentro de como está o tempo lá fora antes de sair de casa.\n\n💬 Mural da cidade — poste suas fotos, pensamentos, recados e enquetes. É o coração pulsante de Lockwood!\n\nEsta é a nossa cidade. Cada morador faz parte dessa história. Cadastrem-se, encham o mural de vida, deixem recados nos perfis dos vizinhos e vamos fazer de Lockwood o melhor lugar pra se estar.\n\nAs portas estão abertas. Sejam bem-vindos.\n\n— A Prefeitura de Lockwood 🏘️",
+      "dataCriacao": "2026-08-01T06:33:07.208Z",
+      "fixado": true
+    }
+  ],
+  "comentariosNoticia": [],
+  "eventos": [
+    {
+      "id": 1,
+      "autorId": 2,
+      "titulo": "Inauguração da Praça Central",
+      "descricao": "Venha celebrar a inauguração da praça renovada! Música ao vivo, comida e boa companhia.",
+      "data": "2026-08-10T06:33:07.208Z",
+      "local": "Praça Central de Lockwood",
+      "dataCriacao": "2026-08-02T06:33:07.208Z"
+    }
+  ],
+  "rsvps": [],
+  "users": [
+    {
+      "id": 1,
+      "email": "prefeitodamelhorcidade@lockwood.net",
+      "senha": "123456",
+      "nome": "Prefeito",
+      "bio": "vivendo, postando, existindo ✨",
+      "linkMusica": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "testando mood 1785775357511",
+      "titulo": "Prefeito da Melhor Cidade",
+      "tituloCor": "#ffd23f",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "dataCriacao": "2026-07-14T06:33:07.208Z",
+      "status": "online",
+      "tema": "padrao"
+    },
+    {
+      "id": 2,
+      "email": "bot@lockwood.net",
+      "senha": "123456",
+      "nome": "Lockwood Bot",
+      "bio": "perfil oficial da casa 🤖",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "online e vigilante 🤖",
+      "titulo": "Admin & Bot",
+      "tituloCor": "#00e5ff",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "dataCriacao": "2026-06-24T06:33:07.208Z",
+      "status": "online",
+      "tema": "padrao"
+    }
+  ],
+  "posts": [
+    {
+      "id": 2,
+      "autorId": 2,
+      "conteudo": " lockwood.net está no ar! 🌆\n\nA prefeitura abre as portas da cidade pra todo mundo. Criem seus perfis, postem no mural, ouçam a rádio e deixem a praça voltar à vida. Sejam bem-vindos a Lockwood! 💜",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "dataCriacao": "2026-08-02T04:33:07.208Z",
+      "fixado": false,
+      "editado": false,
+      "repostOf": null
+    },
+    {
+      "id": 5,
+      "autorId": 2,
+      "conteudo": "O mural de Lockwood agora atualiza sozinho! Bem-vindos ao futuro (dos anos 2000) ✨",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-03T07:59:51.323Z"
+    }
+  ],
+  "comentarios": [
+    {
+      "id": 1,
+      "autorId": 2,
+      "postId": 1,
+      "conteudo": "demoraaa 👀",
+      "imagem": "",
+      "parentId": null,
+      "dataCriacao": "2026-08-03T04:33:07.208Z"
+    }
+  ],
+  "curtidas": [],
+  "amizades": [
+    {
+      "id": 1,
+      "solicitanteId": 1,
+      "destinatarioId": 2,
+      "status": "aceita"
+    }
+  ],
+  "mensagens": [
+    {
+      "id": 1,
+      "remetenteId": 2,
+      "destinatarioId": 1,
+      "conteudo": "oi Ana, bem-vinda de novo 👋",
+      "imagem": "",
+      "dataCriacao": "2026-08-03T01:33:07.208Z",
+      "replyToId": null,
+      "editado": false
+    },
+    {
+      "id": 2,
+      "remetenteId": 1,
+      "destinatarioId": 2,
+      "conteudo": "valeu! testando as DMs por aqui",
+      "imagem": "",
+      "dataCriacao": "2026-08-03T02:03:07.208Z",
+      "replyToId": null,
+      "editado": false
+    }
+  ],
+  "votosEnquete": [],
+  "grupos": [
+    {
+      "id": 1,
+      "nome": "Café da Praça",
+      "criadorId": 1,
+      "membros": [
+        {
+          "id": 1,
+          "status": "aceito"
+        },
+        {
+          "id": 2,
+          "status": "aceito"
+        }
+      ],
+      "dataCriacao": "2026-08-03T08:03:31.045Z",
+      "cor": "#a86bff"
+    }
+  ],
+  "mensagensGrupo": [
+    {
+      "id": 1,
+      "grupoId": 1,
+      "autorId": 2,
+      "conteudo": "Bom dia Lockwood! ☕ O café tá pronto no grupo.",
+      "imagem": "",
+      "dataCriacao": "2026-08-03T08:04:39.665Z"
+    },
+    {
+      "id": 2,
+      "grupoId": 1,
+      "autorId": 2,
+      "conteudo": "E levem bolo também! 🍰",
+      "imagem": "",
+      "dataCriacao": "2026-08-03T08:05:19.928Z"
+    }
+  ],
+  "recados": [],
+  "visitasPerfil": {}
+}
