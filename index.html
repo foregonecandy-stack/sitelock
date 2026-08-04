@@ -639,8 +639,15 @@
         .city-clock-text{ color:var(--neon-cyan); font-weight:bold; }
         .city-bar-radio{ display:flex; align-items:center; gap:8px; margin-left:auto; }
         .radio-label{ display:flex; align-items:center; gap:4px; color:var(--neon-gold); }
-        .radio-player-wrap{ position:fixed; bottom:0; right:0; z-index:9999; }
-        .radio-player-wrap iframe{ border:0; }
+        .radio-player-wrap{ position:fixed; bottom:0; right:0; z-index:9999; background:var(--panel,#1a1430); border-top-left-radius:12px; overflow:hidden; box-shadow:-4px -4px 20px rgba(0,0,0,.5); }
+        .radio-player-wrap iframe{ border:0; display:block; }
+        .radio-player-wrap.hidden{ display:none; }
+        .radio-offline{ padding:14px 18px; font-size:13px; color:#ff6b9d; max-width:280px; line-height:1.5; background:var(--panel,#1a1430); border:2px solid #ff6b9d; border-radius:10px; margin:6px; text-align:center; }
+        @media (max-width:768px){
+          .radio-player-wrap{ left:0; right:0; bottom:0; border-top-left-radius:0; border-top-right-radius:12px; }
+          .radio-player-wrap iframe{ width:100% !important; height:80px !important; }
+          .radio-offline{ max-width:none; margin:6px; }
+        }
         .city-admin-btn{ margin-left:8px; }
         .btn.xsmall{ font-size:10px; padding:3px 8px; }
 
@@ -3693,6 +3700,7 @@
     // --- estado da cidade em memória ---
     let cidadeEstado = null;
     let radioTocando = false;
+    let radioEstacaoLocal = null; // estação escolhida pelo usuário (só pra ele); null = segue a do admin
     let clockTimer = null;
 
     async function carregarCidade() {
@@ -3705,6 +3713,34 @@
       // mostra/esconde botão do painel da prefeitura
       const adminBtn = document.getElementById('btn-city-admin');
       if (adminBtn) adminBtn.classList.toggle('hidden', !isAdminAllowed(currentUser));
+      // inicia poll da rádio pra sincronizar mudanças do admin com todos os usuários
+      iniciarPollRadio();
+    }
+
+    let _radioPollTimer = null;
+    function iniciarPollRadio() {
+      if (_radioPollTimer) clearInterval(_radioPollTimer);
+      _radioPollTimer = setInterval(async () => {
+        try {
+          const novoEstado = await api('/cidade/estado');
+          if (!novoEstado || !novoEstado.radioEstacoes) return;
+          // só sincroniza se o usuário não escolheu uma estação local própria
+          const estacaoAtivaAntes = cidadeEstado ? cidadeEstado.radioEstacaoAtiva : null;
+          const estacoesAntes = JSON.stringify((cidadeEstado && cidadeEstado.radioEstacoes || []).map(e => e.id + e.playlistUrl));
+          const estacoesNovo = JSON.stringify((novoEstado.radioEstacoes || []).map(e => e.id + e.playlistUrl));
+          cidadeEstado = novoEstado;
+          // se o admin trocou a estação ativa E o usuário está seguindo o admin (sem estação local), atualiza
+          if (estacaoAtivaAntes !== novoEstado.radioEstacaoAtiva && !radioEstacaoLocal) {
+            renderCityBar();
+            if (radioTocando) renderRadioPlayer();
+          }
+          // se as estações mudaram (admin adicionou/trocou música), re-renderiza
+          if (estacoesAntes !== estacoesNovo) {
+            renderCityBar();
+            if (radioTocando) renderRadioPlayer();
+          }
+        } catch (e) { /* silencioso — não incomoda o usuário a cada poll */ }
+      }, 8000); // a cada 8 segundos
     }
 
     function getHoraCidade() {
@@ -3760,8 +3796,9 @@
         climaEl.innerHTML = `<span class="city-clima-icon">${cidadeEstado.clima.icone || '☁️'}</span>
           <span class="city-clima-text">${escapeHtml(cidadeEstado.clima.condicao || 'nublado')}, ${cidadeEstado.clima.temp || 20}°C</span>`;
       }
-      // rádio
-      const estacao = (cidadeEstado.radioEstacoes || []).find(e => e.id === cidadeEstado.radioEstacaoAtiva);
+      // rádio — mostra a estação que o usuário está ouvindo (local ou a do admin)
+      const estacaoIdAtiva = radioEstacaoLocal || cidadeEstado.radioEstacaoAtiva;
+      const estacao = (cidadeEstado.radioEstacoes || []).find(e => e.id === estacaoIdAtiva);
       const radioNameEl = document.getElementById('radio-station-name');
       if (radioNameEl && estacao) radioNameEl.textContent = estacao.nome;
       // aplicar tema
@@ -3785,34 +3822,50 @@
     // --- rádio player ---
     function extrairPlaylistId(url) {
       if (!url) return null;
-      // YouTube: list=ID
-      let m = url.match(/[?&]list=([^&]+)/);
-      if (m) return { tipo: 'youtube', id: m[1] };
+      const u = url.trim();
+      // YouTube: playlist com list=ID
+      let m = u.match(/[?&]list=([^&]+)/);
+      if (m) return { tipo: 'youtube', id: m[1], isPlaylist: true };
       // YouTube: /playlist?list=ID
-      m = url.match(/playlist\?list=([^&]+)/);
-      if (m) return { tipo: 'youtube', id: m[1] };
-      // Spotify: /playlist/ID
-      m = url.match(/spotify\.com.*(?:playlist|embed)\/([a-zA-Z0-9]+)/);
-      if (m) return { tipo: 'spotify', id: m[1] };
+      m = u.match(/playlist\?list=([^&]+)/);
+      if (m) return { tipo: 'youtube', id: m[1], isPlaylist: true };
+      // YouTube: vídeo único — youtu.be/ID
+      m = u.match(/youtu\.be\/([^?&]+)/);
+      if (m) return { tipo: 'youtube', id: m[1], isPlaylist: false };
+      // YouTube: watch?v=ID
+      m = u.match(/[?&]v=([^&]+)/);
+      if (m) return { tipo: 'youtube', id: m[1], isPlaylist: false };
+      // YouTube: /embed/ID
+      m = u.match(/youtube\.com\/embed\/([^?&]+)/);
+      if (m) return { tipo: 'youtube', id: m[1], isPlaylist: false };
+      // Spotify: /playlist/ID ou /track/ID ou embed
+      m = u.match(/spotify\.com.*(?:playlist|embed|track)\/([a-zA-Z0-9]+)/);
+      if (m) return { tipo: 'spotify', id: m[1], isPlaylist: /playlist/.test(u) };
       return null;
     }
 
     function renderRadioPlayer() {
       const wrap = document.getElementById('radio-player-wrap');
       if (!wrap || !cidadeEstado) return;
-      const estacao = (cidadeEstado.radioEstacoes || []).find(e => e.id === cidadeEstado.radioEstacaoAtiva);
+      const estacaoId = radioEstacaoLocal || cidadeEstado.radioEstacaoAtiva;
+      const estacao = (cidadeEstado.radioEstacoes || []).find(e => e.id === estacaoId);
       if (!estacao || !estacao.playlistUrl) {
-        wrap.innerHTML = `<div style="background:var(--panel); padding:8px 14px; border:1px solid var(--line); border-radius:8px 0 0 0; font-family:var(--font-mono); font-size:11px; color:var(--text-dim);">📡 ${escapeHtml(estacao ? estacao.nome : 'Rádio')}: esta estação está fora do ar no momento.</div>`;
+        wrap.innerHTML = `<div class="radio-offline">📡 ${escapeHtml(estacao ? estacao.nome : 'Rádio')}: esta estação está fora do ar. Peça pro admin adicionar uma música!</div>`;
         return;
       }
       const info = extrairPlaylistId(estacao.playlistUrl);
       let iframe = '';
       if (info && info.tipo === 'youtube') {
-        iframe = `<iframe src="https://www.youtube.com/embed/videoseries?list=${info.id}&autoplay=1" width="280" height="80" frameborder="0" allow="autoplay; encrypted-media"></iframe>`;
+        if (info.isPlaylist) {
+          iframe = `<iframe src="https://www.youtube.com/embed/videoseries?list=${info.id}&autoplay=1" width="300" height="80" frameborder="0" allow="autoplay; encrypted-media; fullscreen"></iframe>`;
+        } else {
+          iframe = `<iframe src="https://www.youtube.com/embed/${info.id}?autoplay=1&loop=1&playlist=${info.id}" width="300" height="80" frameborder="0" allow="autoplay; encrypted-media; fullscreen"></iframe>`;
+        }
       } else if (info && info.tipo === 'spotify') {
-        iframe = `<iframe src="https://open.spotify.com/embed/playlist/${info.id}" width="300" height="80" frameborder="0" allow="autoplay; encrypted-media"></iframe>`;
+        const tipo = info.isPlaylist ? 'playlist' : 'track';
+        iframe = `<iframe src="https://open.spotify.com/embed/${tipo}/${info.id}" width="300" height="80" frameborder="0" allow="autoplay; encrypted-media; clipboard-write"></iframe>`;
       } else {
-        iframe = `<div style="background:var(--panel); padding:8px 14px; border:1px solid var(--line); border-radius:8px 0 0 0; font-family:var(--font-mono); font-size:11px; color:var(--text-dim);">⚠ Link de playlist inválido. Use um link de playlist do YouTube ou Spotify.</div>`;
+        iframe = `<div class="radio-offline">⚠ Link inválido. Use um link do YouTube (vídeo ou playlist) ou Spotify.</div>`;
       }
       wrap.innerHTML = iframe;
     }
@@ -3827,13 +3880,13 @@
         if (btn) btn.textContent = '⏸';
         // se modo aleatório, troca de estação a cada 90s
         if (cidadeEstado && cidadeEstado.radioAleatorio) {
-          window._radioShuffleTimer = setInterval(async () => {
+          window._radioShuffleTimer = setInterval(() => {
             const estacoes = cidadeEstado.radioEstacoes || [];
             if (estacoes.length < 2) return;
-            const atual = cidadeEstado.radioEstacaoAtiva;
+            const atual = radioEstacaoLocal || cidadeEstado.radioEstacaoAtiva;
             let nova;
             do { nova = estacoes[Math.floor(Math.random() * estacoes.length)].id; } while (nova === atual);
-            cidadeEstado.radioEstacaoAtiva = nova;
+            radioEstacaoLocal = nova;
             renderCityBar();
             renderRadioPlayer();
           }, 90000);
@@ -3849,10 +3902,11 @@
     function pularEstacaoRadio() {
       const estacoes = (cidadeEstado && cidadeEstado.radioEstacoes) || [];
       if (estacoes.length === 0) return;
-      const atual = cidadeEstado.radioEstacaoAtiva;
+      // pular só afeta o usuário local — não muda a estação global do admin
+      const atual = radioEstacaoLocal || cidadeEstado.radioEstacaoAtiva;
       const idxAtual = estacoes.findIndex(e => e.id === atual);
       const proxima = estacoes[(idxAtual + 1) % estacoes.length].id;
-      cidadeEstado.radioEstacaoAtiva = proxima;
+      radioEstacaoLocal = proxima;
       renderCityBar();
       if (radioTocando) renderRadioPlayer();
       const est = estacoes.find(e => e.id === proxima);
