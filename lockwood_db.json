@@ -5,7 +5,7 @@
     "comentario": 5,
     "curtida": 8,
     "amizade": 9,
-    "mensagem": 6,
+    "mensagem": 5,
     "voto": 1,
     "grupo": 2,
     "mensagemGrupo": 5,
@@ -14,7 +14,7 @@
     "evento": 1,
     "comentarioNoticia": 2,
     "rsvp": 1,
-    "notificacao": 2
+    "notificacao": 1
   },
   "cidade": {
     "clima": {
@@ -156,7 +156,7 @@
       "tema": "preto",
       "dataCriacao": "2026-08-04T18:39:35.458Z",
       "status": "online",
-      "ultimaVisto": "2026-08-05T06:52:24.617Z"
+      "ultimaVisto": "2026-08-05T06:50:24.032Z"
     },
     {
       "id": 4,
@@ -257,7 +257,7 @@
       "tema": "padrao",
       "dataCriacao": "2026-08-05T06:39:39.946Z",
       "status": "online",
-      "ultimaVisto": "2026-08-05T06:52:40.271Z"
+      "ultimaVisto": "2026-08-05T06:52:43.588Z"
     }
   ],
   "posts": [
@@ -449,18 +449,7 @@
       "status": "pendente"
     }
   ],
-  "mensagens": [
-    {
-      "id": 5,
-      "remetenteId": 8,
-      "destinatarioId": 3,
-      "conteudo": "oiiiiii",
-      "imagem": "",
-      "replyToId": null,
-      "editado": false,
-      "dataCriacao": "2026-08-05T06:52:38.011Z"
-    }
-  ],
+  "mensagens": [],
   "votosEnquete": [],
   "grupos": [
     {
@@ -497,19 +486,5 @@
   ],
   "recados": [],
   "visitasPerfil": {},
-  "notificacoes": [
-    {
-      "id": 1,
-      "usuarioId": 3,
-      "tipo": "mensagem",
-      "deId": 8,
-      "postId": null,
-      "grupoId": null,
-      "noticiaId": null,
-      "eventoId": null,
-      "extra": "oiiiiii",
-      "lida": false,
-      "dataCriacao": "2026-08-05T06:52:38.011Z"
-    }
-  ]
+  "notificacoes": []
 }
