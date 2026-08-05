@@ -2,7 +2,7 @@
   "nextIds": {
     "user": 9,
     "post": 17,
-    "comentario": 6,
+    "comentario": 5,
     "curtida": 8,
     "amizade": 9,
     "mensagem": 5,
@@ -14,7 +14,7 @@
     "evento": 1,
     "comentarioNoticia": 2,
     "rsvp": 1,
-    "notificacao": 2
+    "notificacao": 1
   },
   "cidade": {
     "clima": {
@@ -156,7 +156,7 @@
       "tema": "preto",
       "dataCriacao": "2026-08-04T18:39:35.458Z",
       "status": "online",
-      "ultimaVisto": "2026-08-05T06:54:15.303Z"
+      "ultimaVisto": "2026-08-05T06:50:24.032Z"
     },
     {
       "id": 4,
@@ -257,7 +257,7 @@
       "tema": "padrao",
       "dataCriacao": "2026-08-05T06:39:39.946Z",
       "status": "online",
-      "ultimaVisto": "2026-08-05T06:54:37.316Z"
+      "ultimaVisto": "2026-08-05T06:55:00.297Z"
     }
   ],
   "posts": [
@@ -365,15 +365,6 @@
       "imagem": "",
       "parentId": null,
       "dataCriacao": "2026-08-04T22:48:36.080Z"
-    },
-    {
-      "id": 5,
-      "autorId": 8,
-      "postId": 12,
-      "conteudo": "se eu acho esse adm lasco um beijo nele",
-      "imagem": "",
-      "parentId": null,
-      "dataCriacao": "2026-08-05T06:54:52.277Z"
     }
   ],
   "curtidas": [
@@ -495,19 +486,5 @@
   ],
   "recados": [],
   "visitasPerfil": {},
-  "notificacoes": [
-    {
-      "id": 1,
-      "usuarioId": 2,
-      "tipo": "comentario",
-      "deId": 8,
-      "postId": 12,
-      "grupoId": null,
-      "noticiaId": null,
-      "eventoId": null,
-      "extra": null,
-      "lida": false,
-      "dataCriacao": "2026-08-05T06:54:52.277Z"
-    }
-  ]
+  "notificacoes": []
 }
