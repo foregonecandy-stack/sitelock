@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 10,
+    "user": 9,
     "post": 17,
     "comentario": 5,
     "curtida": 8,
-    "amizade": 10,
+    "amizade": 9,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -258,27 +258,6 @@
       "dataCriacao": "2026-08-05T06:39:39.946Z",
       "status": "online",
       "ultimaVisto": "2026-08-05T07:01:00.739Z"
-    },
-    {
-      "id": 9,
-      "email": "testandocelular@gmail.com",
-      "senha": "12345",
-      "nome": "Testecelular",
-      "bio": "",
-      "linkMusica": "",
-      "fotoPerfilUrl": "",
-      "bannerUrl": "",
-      "amigosPersonalizado": null,
-      "desdePersonalizado": null,
-      "mood": "",
-      "titulo": "",
-      "tituloCor": "",
-      "adminTitulo": "",
-      "adminTituloCor": "",
-      "tema": "padrao",
-      "dataCriacao": "2026-08-05T07:51:45.589Z",
-      "ultimaVisto": "2026-08-05T07:51:48.864Z",
-      "status": "online"
     }
   ],
   "posts": [
@@ -467,12 +446,6 @@
       "id": 8,
       "solicitanteId": 1,
       "destinatarioId": 8,
-      "status": "pendente"
-    },
-    {
-      "id": 9,
-      "solicitanteId": 1,
-      "destinatarioId": 9,
       "status": "pendente"
     }
   ],
