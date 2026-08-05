@@ -1,8 +1,8 @@
 {
   "nextIds": {
     "user": 10,
-    "post": 19,
-    "comentario": 5,
+    "post": 20,
+    "comentario": 6,
     "curtida": 9,
     "amizade": 10,
     "mensagem": 5,
@@ -381,6 +381,18 @@
       "fixado": false,
       "editado": false,
       "dataCriacao": "2026-08-05T08:31:32.274Z"
+    },
+    {
+      "id": 19,
+      "autorId": 9,
+      "conteudo": "",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": 17,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-05T08:32:02.874Z"
     }
   ],
   "comentarios": [
@@ -410,6 +422,15 @@
       "imagem": "",
       "parentId": null,
       "dataCriacao": "2026-08-04T22:48:36.080Z"
+    },
+    {
+      "id": 5,
+      "autorId": 9,
+      "postId": 17,
+      "conteudo": "Teste",
+      "imagem": "",
+      "parentId": null,
+      "dataCriacao": "2026-08-05T08:32:00.873Z"
     }
   ],
   "curtidas": [
