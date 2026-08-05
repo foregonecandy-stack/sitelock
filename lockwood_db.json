@@ -155,7 +155,8 @@
       "adminTituloCor": "",
       "tema": "preto",
       "dataCriacao": "2026-08-04T18:39:35.458Z",
-      "status": "online"
+      "status": "online",
+      "ultimaVisto": "2026-08-05T06:39:54.607Z"
     },
     {
       "id": 4,
@@ -242,7 +243,7 @@
       "email": "t0mmylho_w4yne@lockwood.com",
       "senha": "AzuraAmoreMio_M",
       "nome": "iamspeed",
-      "bio": "",
+      "bio": "Capitão do time de futebol americano Lockwood Wolves, vão se fuder Tampa Chiefs. AQUI É EU!",
       "linkMusica": "",
       "fotoPerfilUrl": "",
       "bannerUrl": "",
@@ -254,7 +255,9 @@
       "adminTitulo": "",
       "adminTituloCor": "",
       "tema": "padrao",
-      "dataCriacao": "2026-08-05T06:39:39.946Z"
+      "dataCriacao": "2026-08-05T06:39:39.946Z",
+      "ultimaVisto": "2026-08-05T06:39:51.247Z",
+      "status": "online"
     }
   ],
   "posts": [
