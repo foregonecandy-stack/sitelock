@@ -1,7 +1,7 @@
 {
   "nextIds": {
     "user": 10,
-    "post": 17,
+    "post": 19,
     "comentario": 5,
     "curtida": 8,
     "amizade": 10,
@@ -357,6 +357,30 @@
       "fixado": false,
       "editado": false,
       "dataCriacao": "2026-08-05T05:19:04.166Z"
+    },
+    {
+      "id": 17,
+      "autorId": 9,
+      "conteudo": "Teste",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-05T08:31:31.478Z"
+    },
+    {
+      "id": 18,
+      "autorId": 2,
+      "conteudo": "🎊 Testecelular fez sua primeira postagem no lockwood! 🎉",
+      "imagem": "",
+      "imagens": [],
+      "enquete": null,
+      "repostOf": null,
+      "fixado": false,
+      "editado": false,
+      "dataCriacao": "2026-08-05T08:31:32.274Z"
     }
   ],
   "comentarios": [
