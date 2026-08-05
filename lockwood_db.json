@@ -390,7 +390,7 @@
       "imagens": [],
       "enquete": null,
       "repostOf": 17,
-      "fixado": false,
+      "fixado": true,
       "editado": false,
       "dataCriacao": "2026-08-05T08:32:02.874Z"
     }
