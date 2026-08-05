@@ -1,10 +1,10 @@
 {
   "nextIds": {
-    "user": 8,
+    "user": 9,
     "post": 17,
     "comentario": 5,
     "curtida": 8,
-    "amizade": 8,
+    "amizade": 9,
     "mensagem": 5,
     "voto": 1,
     "grupo": 2,
@@ -236,6 +236,25 @@
       "tema": "verde",
       "dataCriacao": "2026-08-04T22:58:32.289Z",
       "status": "online"
+    },
+    {
+      "id": 8,
+      "email": "t0mmylho_w4yne@lockwood.com",
+      "senha": "AzuraAmoreMio_M",
+      "nome": "iamspeed",
+      "bio": "",
+      "linkMusica": "",
+      "fotoPerfilUrl": "",
+      "bannerUrl": "",
+      "amigosPersonalizado": null,
+      "desdePersonalizado": null,
+      "mood": "",
+      "titulo": "",
+      "tituloCor": "",
+      "adminTitulo": "",
+      "adminTituloCor": "",
+      "tema": "padrao",
+      "dataCriacao": "2026-08-05T05:47:13.139Z"
     }
   ],
   "posts": [
@@ -418,6 +437,12 @@
       "id": 7,
       "solicitanteId": 4,
       "destinatarioId": 6,
+      "status": "pendente"
+    },
+    {
+      "id": 8,
+      "solicitanteId": 1,
+      "destinatarioId": 8,
       "status": "pendente"
     }
   ],
