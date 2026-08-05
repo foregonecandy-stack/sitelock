@@ -14,7 +14,7 @@
     "evento": 1,
     "comentarioNoticia": 2,
     "rsvp": 1,
-    "notificacao": 1
+    "notificacao": 2
   },
   "cidade": {
     "clima": {
@@ -277,7 +277,7 @@
       "adminTituloCor": "",
       "tema": "padrao",
       "dataCriacao": "2026-08-05T08:29:51.483Z",
-      "ultimaVisto": "2026-08-05T08:31:51.492Z",
+      "ultimaVisto": "2026-08-05T08:32:26.976Z",
       "status": "online"
     }
   ],
@@ -524,7 +524,7 @@
       "id": 9,
       "solicitanteId": 1,
       "destinatarioId": 9,
-      "status": "pendente"
+      "status": "aceita"
     }
   ],
   "mensagens": [],
@@ -564,5 +564,19 @@
   ],
   "recados": [],
   "visitasPerfil": {},
-  "notificacoes": []
+  "notificacoes": [
+    {
+      "id": 1,
+      "usuarioId": 1,
+      "tipo": "amizade_aceita",
+      "deId": 9,
+      "postId": null,
+      "grupoId": null,
+      "noticiaId": null,
+      "eventoId": null,
+      "extra": null,
+      "lida": false,
+      "dataCriacao": "2026-08-05T08:32:20.778Z"
+    }
+  ]
 }
