@@ -155,7 +155,8 @@
       "adminTituloCor": "",
       "tema": "preto",
       "dataCriacao": "2026-08-04T18:39:35.458Z",
-      "status": "online"
+      "status": "online",
+      "ultimaVisto": "2026-08-05T06:43:09.760Z"
     },
     {
       "id": 4,
@@ -255,8 +256,7 @@
       "adminTituloCor": "",
       "tema": "padrao",
       "dataCriacao": "2026-08-05T06:39:39.946Z",
-      "status": "online",
-      "ultimaVisto": "2026-08-05T06:42:55.649Z"
+      "status": "online"
     }
   ],
   "posts": [
